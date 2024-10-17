@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+
+{% for msg in messages %}
+{% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+<div class="alert alert-success">
+  {{ msg }}
+</div>
+{% endif %}
+{% endfor %}
+
+
+{% for pet in pets %}
+
+<div class="col-md-3 mt-3">
+  <div class="card">
+    <img src="{{ pet.imagepath.url }}" class="card-img-top" alt="Image of {{ pet.name }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ pet.name }}</h5>
+      <h5 class="card-title">{{ pet.breed }} {{ pet.type }}</h5>
+      <h5 class="card-title">{{ pet.gender }} {{ pet.age }} months</h5>
+      <strong>Rs. {{ pet.price }}</strong><br>
+      <a href="/details/{{ pet.id }}" class="btn btn-warning">Details</a>
+      <a href="/addtocart/{{pet.id}}" class="btn btn-warning">Add To Cart</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endfor %}
+{% endblock 'main' %}

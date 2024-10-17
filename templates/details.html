@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block 'main' %}
+
+
+<div class="card col-md-3 " >
+    <img src="{{ pet.imagepath.url }}" class="card-img-top"  height="250px" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{pet.name}}</h5>
+      <h5 class="card-title">{{pet.breed}} {{pet.type}}</h5>
+      <h5 class="card-title">{{pet.gender}} {{pet.age}} months</h5>
+      <strong>Rs.{{pet.price}}</strong>
+      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+      <strong>Rs. 20000 </strong><br>
+      <a href="/" class="btn btn-warning">Back</a> &nbsp; 
+      <a href="/addtocart/{{pet.id}} " class="btn btn-warning">Add To Cart</a>
+    </div>
+  </div>
+  
+  {% endblock 'main' %}
